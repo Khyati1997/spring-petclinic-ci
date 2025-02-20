@@ -20,7 +20,7 @@ pipeline {
         stage('Build') {
             steps {
                 script {
-                    sh 'mvn clean package -DskipTests'
+                    bat 'mvnw.cmd clean package -DskipTests'  
                 }
             }
         }
@@ -28,8 +28,8 @@ pipeline {
         stage('Run Tests & Generate Code Coverage') {
             steps {
                 script {
-                    sh 'mvn test'
-                    sh 'mvn jacoco:report'
+                    bat 'mvnw.cmd test'  
+                    bat 'mvnw.cmd jacoco:report'  
                 }
             }
         }
